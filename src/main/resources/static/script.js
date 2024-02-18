@@ -19,8 +19,6 @@ let ut = "";
 
 const billettListe=[];
 
-ryddForm();
-
 function registreringAvBillett(fl,at,fn,et,tn,ep){
 
     const billett={
@@ -139,8 +137,8 @@ function visBilletter(){
 function ryddForm(){
     const form = document.getElementById("billettSkjema");
     const filmSelect = document.getElementById("film-select");
-    let filmFeilTekst = document.getElementById("film-validering");
-    filmFeilTekst.style ="display: none;"
+    let filmFeilTekst = document.getElementById('filmValidering');
+    filmFeilTekst.style.display = "block;"
 
     filmV = false;
     antallV = false;
@@ -153,3 +151,5 @@ function ryddForm(){
     filmSelect.selectedIndex = 0;
 
 }
+
+ryddForm();
