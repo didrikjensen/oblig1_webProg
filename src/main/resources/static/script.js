@@ -9,9 +9,10 @@ const emailV = "";
 let ut = "";
 
 const billettListe=[];
-function registreringAvBillett(at,fn,et,tn,ep){
+function registreringAvBillett(fl,at,fn,et,tn,ep){
 
     const billett={
+        film : fl,
         antall : at,
         fornavn :fn,
         etternavn:et,
@@ -24,6 +25,7 @@ function registreringAvBillett(at,fn,et,tn,ep){
 
 function valideringAvInput(){
 
+    const film = document.getElementById("film-select").value;
     const antall = document.getElementById("antall").value;
     const fornavn = document.getElementById("fornavn").value;
     const etternavn = document.getElementById("etternavn").value;
@@ -37,7 +39,7 @@ function valideringAvInput(){
     } else {
 
     }
-    registreringAvBillett(antall,fornavn,etternavn,telefonNr,email);
+    registreringAvBillett(film,antall,fornavn,etternavn,telefonNr,email);
 }
 
 function validering(){
@@ -45,18 +47,21 @@ function validering(){
 }
 
 function slettBilletter(){
+    billettListe.length = 0;
+    visBilletter();
 
 }
 
 function visBilletter(){
     // skriv ut
     let ut = "<table><tr>" +
-        "<th>Film</th><th>Antall Biletter</th><th>Navn</th><th>Telefonnummer</th><th>Email</th>" +
+        "<th>Film</th><th>Antall Biletter</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnummer</th><th>Email</th>" +
         "</tr>";
     for (let p of billettListe){
         ut+="<tr>";
-        ut+="<td>"+p.antall+"</td><td>"+p.fornavn + p.etternavn + "</td><td>" + p.telefonNr + "</td>";
+        ut+="<td>"+p.film+"</td><td>"+p.antall+"</td><td>"+p.fornavn + p.etternavn + "</td><td>" + p.telefonNr + "</td>";
         ut+="</tr>";
     }
+    console.log(billettListe)
     document.getElementById("billettListe").innerHTML=ut;
 }
