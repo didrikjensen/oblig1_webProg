@@ -20,7 +20,7 @@
     <option>Shrek 4</option>
 </select>
     </td><td>
-<div id="film-validering">hei</div>
+    <span class="text-danger" id="film-validering">Du må velge en film</span>
     </td></tr>
 </table>
 <form id="billettSkjema">
@@ -28,27 +28,27 @@
         <tr>
             <td><label for="antall">Antall</label></td>
             <td><input type="text" id="antall" style="width: 50px; margin-bottom: 20px;" required min="1"></td>
-            <td><div id="antall-validering"></div></td>
+            <td><span class="text-danger" id="antall-validering">Du må legge inn minst en billett</span></td>
         </tr>
         <tr>
             <td><label for="fornavn">Fornavn</label></td>
             <td><input type="text" id="fornavn" required></td>
-            <td><div id="fornavn-validering"></div></td>
+            <td><span class="text-danger" id="fornavn-validering">Du må skrive inn et gyldig fornavn</span></td>
         </tr>
         <tr>
             <td><label for="etternavn">Etternavn</label></td>
             <td><input type="text" id="etternavn" required></td>
-            <td><div id="etternavn-validering"></div></td>
+            <td><span class="text-danger" id="etternavn-validering">Du må skrive inn et gyldig etternavn</span></td>
         </tr>
         <tr>
             <td><label for="telefonnr">Telefonr</label></td>
             <td><input type="tel" id="telefonnr" required></td>
-            <td><div id="telefonnr-validering"></div></td>
+            <td><span class="text-danger" id="telefonnr-validering">Du må skrive inn et gyldig telefonnummer</span></td>
         </tr>
         <tr>
             <td><label for="email">Email</label></td>
             <td><input type="email" id="email" required></td>
-            <td><div id="email-validering"></div></td>
+            <td><span class="text-danger" id="email-validering">Du må skrive inn en gyldig e-post adresse</span></td>
         </tr>
     </table>
     <button type="button" id="kjopBillett" onclick="innhentingAvInput()" class="btn btn-success">Kjøp billett</button>

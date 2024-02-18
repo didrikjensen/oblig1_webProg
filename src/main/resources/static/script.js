@@ -7,6 +7,9 @@ let etternavnV = false;
 let telefonnrV = false;
 let emailV = false;
 
+
+
+
 const antallRegEx = /^[1-9][0-9]?$|^100$/;
 const navnRegEx = /^([a-zA-Z-]{1,20})/;
 const telefonRegEx = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/;
@@ -15,6 +18,8 @@ const emailRegEx = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})([a-z]{2,8})?$/;
 let ut = "";
 
 const billettListe=[];
+
+ryddForm();
 
 function registreringAvBillett(fl,at,fn,et,tn,ep){
 
@@ -46,6 +51,7 @@ function validering(fl,at,fn,en,tn,ep){
 
     if(fl === "1"){
         filmFeil()
+        filmV = false;
     } else{
         filmV = true;
         console.log("film")
@@ -117,12 +123,12 @@ function slettBilletter(){
 
 function visBilletter(){
     // skriv ut
-    let ut = "<table><tr>" +
+    let ut = "<table class='table'><tr>" +
         "<th>Film</th><th>Antall Biletter</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnummer</th><th>Email</th>" +
         "</tr>";
     for (let p of billettListe){
         ut+="<tr>";
-        ut+="<td>"+p.film+"</td><td>"+p.antall+"</td><td>"+p.fornavn + p.etternavn + "</td><td>" + p.telefonNr + "</td>";
+        ut+="<td>"+p.film+"</td><td>"+p.antall+"</td><td>"+p.fornavn + "</td><td>" + p.etternavn  + "</td><td>" + p.telefonNr  + "</td><td>" + p.epost + "</td>";
         ut+="</tr>";
     }
     console.log(billettListe)
@@ -130,6 +136,20 @@ function visBilletter(){
     ryddForm();
 }
 
-function ryddform(){
+function ryddForm(){
+    const form = document.getElementById("billettSkjema");
+    const filmSelect = document.getElementById("film-select");
+    let filmFeilTekst = document.getElementById("film-validering");
+    filmFeilTekst.style ="display: none;"
+
+    filmV = false;
+    antallV = false;
+    fornavnV = false;
+    etternavnV = false;
+    telefonnrV = false;
+    emailV = false;
+
+    form.reset();
+    filmSelect.selectedIndex = 0;
 
 }
