@@ -137,8 +137,13 @@ function visBilletter(){
 function ryddForm(){
     const form = document.getElementById("billettSkjema");
     const filmSelect = document.getElementById("film-select");
-    let filmFeilTekst = document.getElementById('filmValidering');
-    filmFeilTekst.style.display = "block;"
+
+    const filmFeilTekst = document.getElementById("FilmValidering").style.display = "none";
+    const antallFeilTekst = document.getElementById("antall-validering").style.display = "none";
+    const fornavnFeilTekst = document.getElementById("fornavn-validering").style.display = "none";
+    const etternavnFeilTekst = document.getElementById("etternavn-validering").style.display = "none";
+    const telefonFeilTekst = document.getElementById("telefonnr-validering").style.display = "none";
+    const emailFeilTekst = document.getElementById("email-validering").style.display = "none";
 
     filmV = false;
     antallV = false;
@@ -149,7 +154,4 @@ function ryddForm(){
 
     form.reset();
     filmSelect.selectedIndex = 0;
-
 }
-
-ryddForm();
