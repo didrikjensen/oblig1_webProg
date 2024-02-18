@@ -3,45 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>hei</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="script.js"></script>
 </head>
 <body>
 <h1>Bestilling av kinobiletter</h1>
+<table>
+    <tr><td>
 <label for="film-select">Velg en film</label>
 <select id="film-select" name="film-select">
-    <option value="">Velg film her</option>
-    <option value="film_option_1">Biler</option>
-    <option value="film_option_2">Shrek 1</option>
-    <option value="film_option_3">Shrek 2</option>
-    <option value="film_option_4">Shrek 3</option>
-    <option value="film_option_5">Shrek 4</option>
+    <option>Velg film her</option>
+    <option>Biler</option>
+    <option>Shrek 1</option>
+    <option>Shrek 2</option>
+    <option>Shrek 3</option>
+    <option>Shrek 4</option>
 </select>
+    </td><td>
+<div id="film-validering">hei</div>
+    </td></tr>
+</table>
 <form id="billettSkjema">
     <table>
         <tr>
-            <td><label for="antallBilletter">Antall</label></td>
-            <td><input type="number" id="antallBilletter" style="width: 20px; margin-bottom: 20px;" required min="1"></td>
+            <td><label for="antall">Antall</label></td>
+            <td><input type="text" id="antall" style="width: 50px; margin-bottom: 20px;" required min="1"></td>
+            <td><div id="antall-validering"></div></td>
         </tr>
         <tr>
             <td><label for="fornavn">Fornavn</label></td>
             <td><input type="text" id="fornavn" required></td>
+            <td><div id="fornavn-validering"></div></td>
         </tr>
         <tr>
             <td><label for="etternavn">Etternavn</label></td>
             <td><input type="text" id="etternavn" required></td>
+            <td><div id="etternavn-validering"></div></td>
         </tr>
         <tr>
-            <td><label for="telefonr">Telefonr</label></td>
-            <td><input type="tel" id="telefonr" required></td>
+            <td><label for="telefonnr">Telefonr</label></td>
+            <td><input type="tel" id="telefonnr" required></td>
+            <td><div id="telefonnr-validering"></div></td>
         </tr>
         <tr>
-            <td><label for="epost">Epost</label></td>
-            <td><input type="email" id="epost" required></td>
+            <td><label for="email">Email</label></td>
+            <td><input type="email" id="email" required></td>
+            <td><div id="email-validering"></div></td>
         </tr>
     </table>
-
-    <button type="button" id="kjopBillett" onclick="validateAndLeggTilBillett()">Kjøp billett</button>
+    <button type="button" id="kjopBillett" onclick="valideringAvInput()" class="btn btn-success">Kjøp billett</button>
 </form>
-
-
+<h2>Alle billetter</h2>
+<button type="button" id="slettBillett" onclick="slettBilletter()" class="btn btn-danger">Slett alle bilettene</button>
+<div id="billettListe">hei</div>
 </body>
 </html>
