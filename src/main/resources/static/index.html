@@ -9,10 +9,29 @@
         #filmValidering{
             display: none;
         }
+        #antall-validering{
+            display: none;
+        }
+        #fornavn-validering{
+            display: none;
+        }
+        #etternavn-validering{
+            display: none;
+        }
+        #telefonnr-validering{
+            display: none;
+        }
+        #email-validering{
+            display: none;
+        }
+
+        .noe{
+            display: block;
+        }
     </style>
 </head>
 <body>
-<h1>Bestilling av kinobiletter</h1>
+<h1>Bestilling av kinobilletter</h1>
 <table>
     <tr><td>
 <label for="film-select">Velg en film</label>
@@ -59,7 +78,7 @@
     <button type="button" id="kjopBillett" onclick="innhentingAvInput()" class="btn btn-success">Kjøp billett</button>
 </form>
 <h2>Alle billetter</h2>
-<button type="button" id="slettBillett" onclick="slettBilletter()" class="btn btn-danger">Slett alle bilettene</button>
-<div id="billettListe">hei</div>
+<button type="button" id="slettBillett" onclick="slettBilletter()" class="btn btn-danger">Slett alle billettene</button>
+<div id="billettListe"></div>
 </body>
 </html>
