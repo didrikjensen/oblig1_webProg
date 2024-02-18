@@ -1,19 +1,21 @@
 //Validerte verdier
 
-const antallV = "";
-const fornavnV ="";
-const etternavnV ="";
-const telefonnrV = "";
-const emailV = "";
+let filmV = false;
+let antallV = false;
+let fornavnV = false;
+let etternavnV = false;
+let telefonnrV = false;
+let emailV = false;
 
-
-    const emailRegEx = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})([a-z]{2,8})?$/;
-    const telefonRegEx = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/;
-
+const antallRegEx = /^[1-9][0-9]?$|^100$/;
+const navnRegEx = /^([a-zA-Z-]{1,20})/;
+const telefonRegEx = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/;
+const emailRegEx = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})([a-z]{2,8})?$/;
 
 let ut = "";
 
 const billettListe=[];
+
 function registreringAvBillett(fl,at,fn,et,tn,ep){
 
     const billett={
@@ -28,7 +30,7 @@ function registreringAvBillett(fl,at,fn,et,tn,ep){
     visBilletter()
 }
 
-function valideringAvInput(){
+function innhentingAvInput(){
 
     const film = document.getElementById("film-select").value;
     const antall = document.getElementById("antall").value;
@@ -37,24 +39,76 @@ function valideringAvInput(){
     const telefonNr = document.getElementById("telefonnr").value;
     const email = document.getElementById("email").value;
 
-    if (emailRegEx.test(email)){
-        console.log("ekte mail")
-    }else {
-        console.log("ikke ekte")
-    }
+    validering(film,antall,fornavn,etternavn,telefonNr,email)
+}
 
-    if(film === "1"){
-        console.log("ikke Valgt")
+function validering(fl,at,fn,en,tn,ep){
+
+    if(fl === "1"){
+        filmFeil()
     } else{
-        console.log("valgt")
+        filmV = true;
+        console.log("film")
     }
-    registreringAvBillett(film,antall,fornavn,etternavn,telefonNr,email);
+    if (antallRegEx.test(at)){
+        antallV = true;
+        console.log("antall")
+    } else{
+        antallFeil();
+    }
+
+    if (navnRegEx.test(fn)){
+        fornavnV = true;
+        console.log("fornavn")
+    } else {
+        fornavnFeil()
+    }
+    if (navnRegEx.test(en)){
+        etternavnV = true;
+        console.log("etternavn")
+    } else {
+        etternavnFeil()
+    }
+
+    if (telefonRegEx.test(tn)){
+        telefonnrV = true;
+        console.log("telefon")
+    } else {
+        telefonNrFeil()
+    }
+
+    if (emailRegEx.test(ep)){
+        emailV = true;
+        console.log("email")
+    }else {
+        emailFeil()
+    }
+
+    if (filmV === true && antallV === true && fornavnV === true && etternavnV === true && telefonnrV === true && emailV === true){
+        registreringAvBillett(fl,at,fn,en,tn,ep)
+    } else{
+        alert("fakk")
+    }
 }
 
-function validering(){
+function filmFeil(){
 
 }
+function antallFeil(){
 
+}
+function fornavnFeil(){
+
+}
+function etternavnFeil(){
+
+}
+function telefonNrFeil(){
+
+}
+function emailFeil(){
+
+}
 function slettBilletter(){
     billettListe.length = 0;
     visBilletter();
@@ -73,4 +127,9 @@ function visBilletter(){
     }
     console.log(billettListe)
     document.getElementById("billettListe").innerHTML=ut;
+    ryddForm();
+}
+
+function ryddform(){
+
 }
