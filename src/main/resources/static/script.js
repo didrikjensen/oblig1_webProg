@@ -6,6 +6,11 @@ const etternavnV ="";
 const telefonnrV = "";
 const emailV = "";
 
+
+    const emailRegEx = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})([a-z]{2,8})?$/;
+    const telefonRegEx = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/;
+
+
 let ut = "";
 
 const billettListe=[];
@@ -32,12 +37,16 @@ function valideringAvInput(){
     const telefonNr = document.getElementById("telefonnr").value;
     const email = document.getElementById("email").value;
 
+    if (emailRegEx.test(email)){
+        console.log("ekte mail")
+    }else {
+        console.log("ikke ekte")
+    }
 
-
-    if(antall ===null || fornavn === null || etternavn === null || telefonNr === null || email === null){
-        alert("Skriv inn din mong");
-    } else {
-
+    if(film === "1"){
+        console.log("ikke Valgt")
+    } else{
+        console.log("valgt")
     }
     registreringAvBillett(film,antall,fornavn,etternavn,telefonNr,email);
 }
